@@ -9,25 +9,25 @@
         
 ## Passo 2 - Criando e configurando uma VM
 
-![Passo 1](img/Passo_1.jpg)
+![Passo 1](imgs/Passo_1.jpg)
 
         - Selecione a opção seguinte pelo mouse ou pelo atalho Ctrl+N
 
-![Passo 2](img/Passo_2.jpg)
+![Passo 2](imgs/Passo_2.jpg)
         
         - Escreva o nome da sua ISO da forma que preferir e selecione a imagem da mesma, buscando-a no diretório que ela foi baixada, no meu caso C:/Users/Henrique/Downloads/CentOS-7-x86_64-Minimal-2009.iso
 
         - Marque a caixa Skip Unattened Installation para pular configurações mais detalhadas da instalação
 
-![Passo 3](img/Passo_3.jpg)
+![Passo 3](imgs/Passo_3.jpg)
 
         - Selecione o hardware da sua VM conforme a capacidade da sua maquina
 
-![Passo 4](img/Passo_4.jpg)
+![Passo 4](imgs/Passo_4.jpg)
 
         - Faça o mesmo com o armazenamento, não precisamos mais do que alguns GBs de espaço
 
-![Passo 5](img/Passo_5.jpg)
+![Passo 5](imgs/Passo_5.jpg)
 
         - Após finalizar a configuração primaria voltaremos a tela inicial da VM, clica no icone da engrenagem ou utilize o atalho Ctrl+S. Selecionaremos na aba de Rede a opção Placa em modo Brige.
 
@@ -44,39 +44,39 @@
 
         - Aqui começaremos a utilizar a nossa VM recém criada, mas antes precisamos configurar mais alguns detalhes
 
-![Passo 6](img/Passo_6.jpg)
+![Passo 6](imgs/Passo_6.jpg)
 
         - Inicie a sua VM em modo normal para ter acesso a CLI.
 
-![Passo 7](img/Passo_7.png)
+![Passo 7](imgs/Passo_7.png)
 
         - Escolhemos uma ISO sem interface gráfica
         - Selecione a opção de instalação da ISO atráves do teclado
         - Após uns instantes (dependendo da sua maquina) a instalação te levara a tela de seleção de idioma, selecione o idioma desejado e avance a instalação
 
-![Passo 8](img/Passo_8.png)
+![Passo 8](imgs/Passo_8.png)
 
         - Selecione a partição criada anteriormente
 
-![Passo 9](img/Passo_9.png)
+![Passo 9](imgs/Passo_9.png)
 
         - Clique no botão finalizado no canto superior esquerdo após selecionar o disco
 
-![Passo 10](img/Passo_10.png)
+![Passo 10](imgs/Passo_10.png)
 
         - Clique na opção de Rede & Nome do Host
 
-![Passo 11](img/Passo_11.png)
+![Passo 11](imgs/Passo_11.png)
 
         - Clique no interruptor para ativar sua conexão, recebendo as configurações de rede, como ip, mask e dns padrão.
         - Caso pulasse esta etapa teria de ser configurado manualmente no sistema atráves do comando "nmtui" (confira o comando caso se sinta curioso)
 
-![Passo 12](img/Passo_12.png)
+![Passo 12](imgs/Passo_12.png)
 
         - Estamos quase lá, caso deseje crie um usuario e depois atribua suas permissões no /etc/sudoers
         - Finalizado as configurações desligue sua VM pois iremos clona-la para utilizarmos uma conexão SSH
 
-![Passo 13](img/Passo_13.png)
+![Passo 13](imgs/Passo_13.png)
 
         - Clique com o botão direito no icone da ISO criado ou utilize o atalho Ctrl + O para o mesmo destino
         - Utilize o nome que desejar, neste exemplo utilizaremos DB CentOS 7
@@ -87,25 +87,25 @@
         - Ligue ambas as VMs em modo normal 
         - Faça login com as credencias que você criou
 
-![Passo 15](img/Passo_15.png)
+![Passo 15](imgs/Passo_15.png)
 
         - Utilize o comando ip a ou ip addr para identificar o ip setado para a VM
         - Note os retangulos em vermelho, o primeiro campo identificado pelo numero 1: seguido de lo: com o ip 127.0.0.1/8 que é o ip de loopback
         - Abaixo temos a nossa placa de rede identificada como 2: enp0s3 com o ip abaixo de 192.168.0.113/24 que é o ip da nossa VM por onde poderemos fazer a conexão SSH.
 
 
-![Passo 16](img/Passo_16.png)
+![Passo 16](imgs/Passo_16.png)
 
         - Verifique se o servidor SSHD esta ativo atráves do comando systemctl status sshd ou service sshd status. Caso na sua VM o serviço não esteja ativo, ative-o atráves do systemctl start sshd.
         - Caso queira deixar o serviço ativo após o reboot set a opção: systemctl enable sshd.
 
-![Passo 17](img/Passo_17.png)
+![Passo 17](imgs/Passo_17.png)
 
         - Para acessar a outra VM antes devemos saber o ip dela utilizando o comando ip a ou ip addr show, neste caso o ip é 192.168.0.112.
         - Para fazer a conexão SSH basta utilizar o comando ssh, seguido do usuario da vm que quer acessar separando o ip do nome pelo caracter "@". 
         - Desta forma o acesso a outra VM ficou sendo ssh monteiro@192.168.0.112. Aperte enter e o terminal pedira a senha, após efetuar o login você estara dentro da outra VM
 
-![Passo 18](img/Passo_18.png)
+![Passo 18](imgs/Passo_18.png)
 
         - Podemos ver que na VM que estamos logados não existe arquivo nenhum na home do usuario monteiro.
         - Cheque o diretorio home com o comando ls /home/"usuario"/
@@ -114,12 +114,12 @@
 
         - Agora utilizaremos o comando SCP que deriva da junção do SSH + COPY, semelhante ao cp mas que faz a copia atráves da conexão SSH
 
-![Passo 19](img/Passo_19.png)
+![Passo 19](imgs/Passo_19.png)
 
         - Vamos sair desta VM com o comando exit. Após o logout vamos criar um arquivo de texto vazio com o comando touch na nossa home. 
         - Agora atráves do comando SCP vamos fazer a copia deste arquivo para a nossa outra VM.
 
-![Passo 20](img/Passo_20.png)
+![Passo 20](imgs/Passo_20.png)
      
         - Semelhante ao comando cp, nós estamos copiando o arquivo texto do diretório atual que estamos sem precisar passar o caminho absoluto que seria /home/henrique/arquivo.txt
         - Utilizando o comando scp arquivo.txt monteiro@192.168.0.112:/home/monteiro nós estamos fazendo o seguinte:
@@ -128,7 +128,7 @@
 
         - Desta forma podemos acessar novamente a outra Vm atráves do SSH e ver a copia do arquivo.
 
-![Passo 21](img/Passo_21.png)
+![Passo 21](imgs/Passo_21.png)
 
         - Utilizando o pwd para mostrar o diretório que estamos e o comando ls para mostrar o conteudo do mesmo, notamos que o arquivo foi copiado com sucesso.
 

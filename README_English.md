@@ -98,49 +98,54 @@
 
 ![Passo 15](imgs/Passo_15.png)
 
-<p> - Utilize o comando <b>ip a ou ip addr</b> para identificar o ip setado para a VM. </p>
+<p> - Use the <b>ip a or ip addr</b> command to identify the ip set for the VM. </p>
 
-<p> - Note os retangulos em vermelho, o primeiro campo identificado pelo numero 1: seguido de lo: com o <b>ip 127.0.0.1/8 que é o ip de loopback</b>. </p>
+<p> - Note the rectangles in red, the first field identified by the number 1: followed by lo: with the <b>ip 127.0.0.1/8 which is the loopback ip</b>. </p>
 
-<p> - Abaixo temos a nossa placa de rede identificada como 2: <b> enp0s3 com o ip abaixo de 192.168.0.113/24</b> que é o ip da nossa VM por onde poderemos fazer a conexão SSH. </p>
-
+<p> - Below we have our network card identified as 2: <b> enp0s3 with the ip below 192.168.0.113/24</b> which is the ip of our VM where we can do the SSH connection. </p>
 
 ![Passo 16](imgs/Passo_16.png)
 
-<p> - Verifique se o servidor SSHD esta ativo atráves do comando <b>systemctl status sshd ou service sshd status</b>. Caso na sua VM o serviço não esteja ativo, ative-o atráves do <b>systemctl start sshd</b>. </p>
-<p> - Caso queira deixar o serviço ativo após o reboot set a opção: <b>systemctl enable sshd</b>. </p>
+<p> - Check if the SSHD server is active using the command <b>systemctl status sshd ou service sshd status</b>. If the service is not active on your VM, activate it using <b>systemctl start sshd</b>. </p>
+
+<p> - If you want to leave the service active after reboot set the option: <b>systemctl enable sshd</b>. </p>
 
 ![Passo 17](imgs/Passo_17.png)
 
-<p> - Para acessar a outra VM antes devemos saber o ip dela utilizando o comando <b>ip a ou ip addr show</b>, neste caso o ip é 192.168.0.112. </p>
-<p> - Para fazer a conexão SSH basta utilizar o comando ssh, seguido do usuario da vm que quer acessar separando o ip do nome pelo caracter <b>"@"</b>. </p>
-<p> - Desta forma o acesso a outra VM ficou sendo <b>ssh monteiro@192.168.0.112</b>. Aperte enter e o terminal pedira a senha, após efetuar o login você estara dentro da outra VM. </p>
+<p> - To access the other VM, first we must know its ip using the command <b>ip a or ip addr show</b>, in this case the ip is 192.168.0.112. </p>
+
+<p> - To make the SSH connection just use the ssh command, followed by the vm user you want to access separating the ip from the name by the character <b>"@"</b>. </p>
+
+<p> - This way the access to the other VM is <b>ssh monteiro@192.168.0.112</b>. Press enter and the terminal will ask for the password, after logging in you will be inside the other VM. </p>
 
 ![Passo 18](imgs/Passo_18.png)
 
-<p> - Podemos ver que na VM que estamos logados não existe arquivo nenhum na home do usuario monteiro. </p>
-<p> - Cheque o diretorio home com o comando <b>ls /home/"usuario"/ </b></p>
-        
-## Passo 5 - Copia de arquivos entre VMs atráves do SCP
+<p> - We can see that in the VM that we are logged in there is no file in the home of the user Monteiro. </p>
 
-<p> - Agora utilizaremos o comando <b>SCP que deriva da junção do SSH + COPY </b>, semelhante ao cp mas que faz a copia atráves da <b>conexão SSH</b>. </p>
+<p> - Check the home directory with the command <b>"ls /home/"user"/". </b></p>
+        
+## Passo 5 - Step 5 - Copying files between VMs via SCPS.
+
+<p> - Now we will use the <b>SCP command that derives from the junction of SSH + COPY </b>, similar to cp but that makes the copy through the <b>SSH connection</b>.</b>. </p>
 
 ![Passo 19](imgs/Passo_19.png)
 
-<p> - Vamos sair desta VM com o comando exit. Após o logout vamos criar um arquivo de texto vazio com o comando <b>touch</b> na nossa home. </p>
-<p> - Agora atráves do comando SCP vamos fazer a copia deste arquivo para a nossa outra VM. </p>
+<p> - Let's log out of this VM with the exit command. After the logout we will create an empty text file with the command <b>touch</b> in our home. </p>.
+
+<p> - Now through the SCP command we will copy this file to our other VM. </p>
 
 ![Passo 20](imgs/Passo_20.png)
      
-<p> - Semelhante ao comando cp, nós estamos copiando o arquivo texto do diretório atual que estamos sem precisar passar o caminho absoluto que seria /home/henrique/arquivo.txt </p>
-<p>- Utilizando o comando scp arquivo.txt monteiro@192.168.0.112:/home/monteiro nós estamos fazendo o seguinte: </p>
-        
-<p> - Primeiro copiamos o arquivo do diretorio atual, depois passamos a conexão ssh que desejamos, neste caso <b>monteiro@192.168.0.112</b>, utilizamos a sintaxe : logo após ao ultimo digito para concatenar a conexão ssh com o próprio diretório absoluto que neste caso é o /home/monteiro </p>
+<p> - Similar to the cp command, we are copying the text file from the current directory we are in without having to pass the absolute path which would be "/home/henrique/file.txt". </p>
 
-<p> - Desta forma podemos acessar novamente a outra Vm atráves do SSH e ver a copia do arquivo. </p>
+<p>- Using the command scp file.txt monteiro@192.168.0.112:/home/monteiro we are doing: </p>
+        
+<p> - First we copy the file from the current directory, then we pass the ssh connection we want, in this case <b>monteiro@192.168.0.112</b>, we use the syntax <b>":"</b> right after the last digit to concatenate the ssh connection with the absolute directory itself, which in this case is "/home/monteiro". </p>
+
+<p> - This way we can access the other VM again via SSH and see the copy of the file. </p>
 
 ![Passo 21](imgs/Passo_21.png)
 
-<p> - Utilizando o pwd para mostrar o diretório que estamos e o comando ls para mostrar o conteudo do mesmo, notamos que o arquivo foi copiado com sucesso. </p>
+<p> - Using pwd to show the directory we are in and the ls command to show its contents, we note that the file was copied successfully. </p>
 
-teste teste teste
+

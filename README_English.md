@@ -143,4 +143,4 @@
 
 <p> - Utilizando o pwd para mostrar o diretório que estamos e o comando ls para mostrar o conteudo do mesmo, notamos que o arquivo foi copiado com sucesso. </p>
 
-teste 
+teste teste

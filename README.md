@@ -118,7 +118,7 @@
 
 ![Passo 19](imgs/Passo_19.png)
 
-<p> - Vamos sair desta VM com o comando exit. Após o logout vamos criar um arquivo de texto vazio com o comando <b>touch</b> na nossa home. </p>
+<p> - Vamos sair desta VM com o comando <b>exit</b>. Após o logout vamos criar um arquivo de texto vazio com o comando <b>touch</b> na nossa home. </p>
 <p> - Agora através do comando SCP vamos fazer a cópia deste arquivo para a nossa outra VM. </p>
 
 ![Passo 20](imgs/Passo_20.png)

@@ -1,13 +1,13 @@
-<h2 p align="center" > Criando VMs, utilizando conexão SSH e copias entre redes atráves do SCP </h2></p>
+<h2 p align="center" > Criando VMs, utilizando conexão SSH e copias de arquivos entre redes através do SCP. </h2></p>
 
 <i> <p align="center"> Para este exemplo utilizarei a Virtual Box da Oracle.</p>
 
-## Passo 1 - Baixando a ISO
+## Passo 1 - Baixando a ISO.
 <p>- Para o nosso exemplo utilizarei a ISO CentOS 7.9.2009-Minimal. <br>
 - http://mirror.ufscar.br/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso </p>
 
         
-## Passo 2 - Criando e configurando uma VM
+## Passo 2 - Criando e configurando uma VM.
 
 ![Passo 1](imgs/Passo_1.jpg)
 
@@ -15,7 +15,8 @@
 
 ![Passo 2](imgs/Passo_2.jpg)
         
-<p>- Escreva o nome da sua ISO da forma que preferir e selecione a imagem da mesma, buscando-a no diretório que ela foi baixada, no meu caso C:/Users/Henrique/Downloads/CentOS-7-x86_64-Minimal-2009.iso.
+<p>- Escreva o nome da sua ISO da forma que preferir e selecione a imagem da mesma, buscando-a no diretório que ela foi baixada, no meu caso "C:/Users/Henrique/Downloads/CentOS-7-x86_64-Minimal-2009.iso".
+
 <p> - Marque a caixa Skip Unattened Installation para pular configurações mais detalhadas da instalação. </p><br>
 
 ![Passo 3](imgs/Passo_3.jpg)
@@ -28,16 +29,21 @@
 
 ![Passo 5](imgs/Passo_5.jpg)
 
-</p> - Após finalizar a configuração primaria voltaremos a tela inicial da VM, clica no icone da engrenagem ou utilize o atalho Ctrl+S. </p> <p> - Selecionaremos na aba de Rede a opção Placa em modo <b>Brige</b>. </p>
+</p> - Após finalizar a configuração primaria voltaremos a tela inicial da VM, clique no ícone da engrenagem ou utilize o atalho Ctrl+S. </p> 
+
+<p> - Selecionaremos na aba de Rede a opção Placa em modo <b>Brige</b>. </p>
+
 <p> - Caso exista dúvida sobre os tipos de conectores vou deixar uma breve explicação sobre as conexões mais comuns das VMs. </p>
+
 <p> - Somente host : a VM receberá um IP, mas só estará acessível na caixa em que a VM está sendo executada. Nenhum outro computador pode acessá-lo. </p>
+
 <p> - NAT : assim como a sua rede doméstica com um roteador sem fio, a VM será atribuída em uma sub-rede separada, como 192.168.6.1 é seu computador host e a VM é 192.168.6.3 , sua VM pode acessar a rede externa como seu host, mas sem acesso externo à sua VM diretamente, ela está protegida. </p>
 
 <p> - Bridged : sua VM estará na mesma rede que seu host, se seu IP de host for 172.16.120.45 , sua VM será como 172.16.120.50 . Ele pode ser acessado por todos os computadores na sua rede host. </p><br>
 
 ## Passo 3 - Inicializando a VM
 
-<p> - Aqui começaremos a utilizar a nossa VM recém criada, mas antes precisamos configurar mais alguns detalhes </p>
+<p> - Aqui começaremos a utilizar a nossa VM recém criada, mas antes precisamos configurar mais alguns detalhes. </p>
 
 ![Passo 6](imgs/Passo_6.jpg)
 
@@ -46,7 +52,9 @@
 ![Passo 7](imgs/Passo_7.png)
 
 <p> - Escolhemos uma ISO sem interface gráfica. </p>
-<p> - Selecione a opção de instalação da ISO atráves do teclado </p>
+
+<p> - Selecione a opção de instalação da ISO atráves do teclado. </p>
+
 <p> - Após uns instantes (dependendo da sua maquina) a instalação te levara a tela de seleção de idioma, selecione o idioma desejado e avance a instalação. </p>
 
 ![Passo 8](imgs/Passo_8.png)
